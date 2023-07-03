@@ -51,6 +51,7 @@ final class ViewController: UIViewController, WKNavigationDelegate {
         print(userID)
         decisionHandler(.cancel)
         webView.removeFromSuperview()
+        present(TestViewController(), animated: true)
     }
     
     private func setConstraints() {
