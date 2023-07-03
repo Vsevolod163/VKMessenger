@@ -52,17 +52,51 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         print(userID as String)
         decisionHandler(.cancel)
         webView.removeFromSuperview()
-        present(TabBarController(), animated: true)
+        
+        let tabBarController = InfoTabBarController()
+    
+        tabBarController.tabBar.backgroundColor = .darkGray
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.unselectedItemTintColor = .lightGray
+        tabBarController.modalPresentationStyle = .fullScreen
+        
+        let friendsVC = FriendsViewController()
+        let groupsVC = GroupsViewController()
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        let photosVC = PhotosViewController(collectionViewLayout: flowLayout)
+        
+        friendsVC.token = token
+        friendsVC.userID = userID
+        friendsVC.title = "Friends"
+        friendsVC.tabBarItem.image = UIImage(systemName: "person")
+        
+        groupsVC.token = token
+        groupsVC.userID = userID
+        groupsVC.title = "Groups"
+        groupsVC.tabBarItem.image = UIImage(systemName: "person.2")
+        
+        photosVC.token = token
+        photosVC.userID = userID
+        photosVC.title = "Photos"
+        photosVC.tabBarItem.image = UIImage(systemName: "photo")
+        
+        groupsVC.token = token
+        groupsVC.userID = userID
+        
+        tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
+        
+        present(tabBarController, animated: true)
     }
     
     private func setConstraints() {
         webView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
             [
-                webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+                webView.topAnchor.constraint(equalTo: view.topAnchor),
                 webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+                webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ]
         )
     }
