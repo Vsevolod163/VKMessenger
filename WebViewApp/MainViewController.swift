@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-final class ViewController: UIViewController, WKNavigationDelegate {
+final class MainViewController: UIViewController, WKNavigationDelegate {
 
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
@@ -43,15 +43,16 @@ final class ViewController: UIViewController, WKNavigationDelegate {
                 let key = param[0]
                 let value = param[1]
                 dict[key] = value
+                
                 return dict
             }
-        let token = params["access_token"]
-        let userID = params["user_id"]
-        print(token)
-        print(userID)
+        let token = params["access_token"] ?? ""
+        let userID = params["user_id"] ?? ""
+        print(token as String)
+        print(userID as String)
         decisionHandler(.cancel)
         webView.removeFromSuperview()
-        present(TestViewController(), animated: true)
+        present(TabBarController(), animated: true)
     }
     
     private func setConstraints() {
