@@ -12,13 +12,15 @@
 		C623B7A72A51F6E0009AC14A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623B7A62A51F6E0009AC14A /* MainViewController.swift */; };
 		C623B7AC2A51F6E1009AC14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C623B7AB2A51F6E1009AC14A /* Assets.xcassets */; };
 		C623B7AF2A51F6E1009AC14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C623B7AD2A51F6E1009AC14A /* LaunchScreen.storyboard */; };
-		C67D61B32A534C980027D92A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61B22A534C980027D92A /* TabBarController.swift */; };
+		C67D61B32A534C980027D92A /* InfoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61B22A534C980027D92A /* InfoTabBarController.swift */; };
 		C67D61B52A535E4F0027D92A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61B42A535E4F0027D92A /* FriendsViewController.swift */; };
 		C67D61B72A535E5E0027D92A /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61B62A535E5E0027D92A /* GroupsViewController.swift */; };
 		C67D61B92A535E700027D92A /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61B82A535E700027D92A /* PhotosViewController.swift */; };
 		C67D61C12A535F500027D92A /* FriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C02A535F500027D92A /* FriendViewCell.swift */; };
 		C67D61C32A535F5D0027D92A /* GroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C22A535F5D0027D92A /* GroupViewCell.swift */; };
 		C67D61C52A535F710027D92A /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C42A535F710027D92A /* PhotoViewCell.swift */; };
+		C67D61C72A5361D10027D92A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C62A5361D10027D92A /* Response.swift */; };
+		C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C92A5362F10027D92A /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +31,15 @@
 		C623B7AB2A51F6E1009AC14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C623B7AE2A51F6E1009AC14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C623B7B02A51F6E1009AC14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C67D61B22A534C980027D92A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C67D61B22A534C980027D92A /* InfoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTabBarController.swift; sourceTree = "<group>"; };
 		C67D61B42A535E4F0027D92A /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		C67D61B62A535E5E0027D92A /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		C67D61B82A535E700027D92A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		C67D61C02A535F500027D92A /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
 		C67D61C22A535F5D0027D92A /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		C67D61C42A535F710027D92A /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		C67D61C62A5361D10027D92A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		C67D61C92A5362F10027D92A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 				C67D61BD2A535F0F0027D92A /* ViewControllers */,
 				C67D61BB2A535EF70027D92A /* Storyboards */,
 				C67D61BC2A535F000027D92A /* Sources */,
+				C67D61C82A5362DE0027D92A /* Services */,
 				C67D61BA2A535EE20027D92A /* App */,
 			);
 			path = WebViewApp;
@@ -108,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				C623B7A62A51F6E0009AC14A /* MainViewController.swift */,
-				C67D61B22A534C980027D92A /* TabBarController.swift */,
+				C67D61B22A534C980027D92A /* InfoTabBarController.swift */,
 				C67D61B42A535E4F0027D92A /* FriendsViewController.swift */,
 				C67D61B62A535E5E0027D92A /* GroupsViewController.swift */,
 				C67D61B82A535E700027D92A /* PhotosViewController.swift */,
@@ -119,6 +124,7 @@
 		C67D61BE2A535F1A0027D92A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C67D61C62A5361D10027D92A /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,6 +137,14 @@
 				C67D61C42A535F710027D92A /* PhotoViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C67D61C82A5362DE0027D92A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C67D61C92A5362F10027D92A /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */,
 				C623B7A72A51F6E0009AC14A /* MainViewController.swift in Sources */,
 				C67D61B52A535E4F0027D92A /* FriendsViewController.swift in Sources */,
 				C67D61C12A535F500027D92A /* FriendViewCell.swift in Sources */,
@@ -210,9 +225,10 @@
 				C623B7A32A51F6E0009AC14A /* AppDelegate.swift in Sources */,
 				C67D61C32A535F5D0027D92A /* GroupViewCell.swift in Sources */,
 				C67D61B92A535E700027D92A /* PhotosViewController.swift in Sources */,
-				C67D61B32A534C980027D92A /* TabBarController.swift in Sources */,
+				C67D61B32A534C980027D92A /* InfoTabBarController.swift in Sources */,
 				C623B7A52A51F6E0009AC14A /* SceneDelegate.swift in Sources */,
 				C67D61C52A535F710027D92A /* PhotoViewCell.swift in Sources */,
+				C67D61C72A5361D10027D92A /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewApp/Info.plist;
+				INFOPLIST_FILE = WebViewApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -383,7 +399,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewApp/Info.plist;
+				INFOPLIST_FILE = WebViewApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
