@@ -7,9 +7,12 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
-class PhotosViewController: UICollectionViewController {
+final class PhotosViewController: UICollectionViewController {
+    
+    var token: String!
+    var userID: String!
+    
+    private let reuseIdentifier = "Cell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,15 @@ class PhotosViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
+        let flowLayout = UICollectionViewFlowLayout()
+        super.init(collectionViewLayout: flowLayout)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     /*
