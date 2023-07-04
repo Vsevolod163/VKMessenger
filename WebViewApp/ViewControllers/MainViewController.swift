@@ -19,7 +19,6 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(webView)
         setConstraints()
         
@@ -82,7 +81,8 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         photosVC.tabBarItem.image = UIImage(systemName: "photo")
         
         tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
-        
+        tabBarController.navigationItem.hidesBackButton = true
+       
         navigationController?.pushViewController(tabBarController, animated: true)
     }
     

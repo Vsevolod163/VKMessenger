@@ -16,12 +16,19 @@ struct Response: Decodable {
 
 struct Item: Decodable {
     let city: City?
-    let photo_100: String
-    let first_name: String
-    let last_name: String
+    let photoOneHundred: String
+    let firstName: String
+    let lastName: String
     
+    enum CodingKeys: String, CodingKey {
+        case city
+        case photoOneHundred = "photo_100"
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
 }
 
 struct City: Decodable {
     let title: String
 }
+
