@@ -52,6 +52,12 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.cancel)
         webView.removeFromSuperview()
         
+        let tabBarController = setupTabBarController(withToken: token, andUserId: userID)
+       
+        navigationController?.pushViewController(tabBarController, animated: true)
+    }
+    
+    private func setupTabBarController(withToken token: String, andUserId userID: String) -> UITabBarController {
         let tabBarController = UITabBarController()
     
         tabBarController.tabBar.backgroundColor = .darkGray
@@ -82,8 +88,8 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         
         tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
         tabBarController.navigationItem.hidesBackButton = true
-       
-        navigationController?.pushViewController(tabBarController, animated: true)
+        
+        return tabBarController
     }
     
     private func setConstraints() {
