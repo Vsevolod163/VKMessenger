@@ -22,7 +22,7 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         view.addSubview(webView)
         setConstraints()
         
-        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51694916&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
+        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51695654&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
@@ -53,42 +53,42 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         webView.removeFromSuperview()
         
         let tabBarController = setupTabBarController(withToken: token, andUserId: userID)
-       
+        
         navigationController?.pushViewController(tabBarController, animated: true)
     }
-    
+
     private func setupTabBarController(withToken token: String, andUserId userID: String) -> UITabBarController {
         let tabBarController = UITabBarController()
-    
+
         tabBarController.tabBar.backgroundColor = .darkGray
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .lightGray
         tabBarController.modalPresentationStyle = .fullScreen
-        
+
         let friendsVC = FriendsViewController()
         let groupsVC = GroupsViewController()
-        
+
         let flowLayout = UICollectionViewFlowLayout()
         let photosVC = PhotosViewController(collectionViewLayout: flowLayout)
-        
+
         friendsVC.token = token
         friendsVC.userID = userID
         friendsVC.title = "Friends"
         friendsVC.tabBarItem.image = UIImage(systemName: "person")
-        
+
         groupsVC.token = token
         groupsVC.userID = userID
         groupsVC.title = "Groups"
         groupsVC.tabBarItem.image = UIImage(systemName: "person.2")
-        
+
         photosVC.token = token
         photosVC.userID = userID
         photosVC.title = "Photos"
         photosVC.tabBarItem.image = UIImage(systemName: "photo")
-        
+
         tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
         tabBarController.navigationItem.hidesBackButton = true
-        
+
         return tabBarController
     }
     
