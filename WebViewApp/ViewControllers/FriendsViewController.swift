@@ -7,48 +7,62 @@
 
 import UIKit
 
-class FriendsViewController: UITableViewController {
-    
-    var userID: String!
+final class FriendsViewController: UITableViewController {
+
     var token: String!
+    var userID: String!
     
+    private let cellID = "friend"
     private let networkManager = NetworkManager.shared
+    private var friendResponse = FriendResponse(
+        response: Response(
+            count: 1, items: [
+                Item(
+                    city: City(title: ""),
+                    photo_100: "",
+                    first_name: "",
+                    last_name: ""
+                )
+            ]
+        )
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         fetchData()
+        view.backgroundColor = .black
+        tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.rowHeight = 130
+        tableView.separatorStyle = .none
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // MARK: - TableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        friendResponse.response.items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        guard let cell = cell as? FriendViewCell else { return UITableViewCell() }
+        
+        let friend = friendResponse.response.items[indexPath.row]
+        cell.configure(withPhoto: friend.photo_100, andName: "\(friend.first_name) \(friend.last_name)")
+        cell.backgroundColor = .black
+        cell.selectionStyle = .none
+        
         return cell
     }
-    */
     
     private func fetchData() {
-        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(userID ?? "")&access_token=\(token ?? "")&v=5.131")!
+        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(userID ?? "")&fields=bdays,city,photo_100&access_token=\(token ?? "")&v=5.131")!
         
-        networkManager.fetch(from: friendURL) { result in
+        networkManager.fetch(FriendResponse.self, from: friendURL) { [weak self] result in
             switch result {
             case .success(let response):
-                print(response.response.items)
+                self?.friendResponse = response
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }

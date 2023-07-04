@@ -18,7 +18,7 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetch(from url: URL, completion: @escaping (Result<Response, NetworkError>) -> Void) {
+    func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 completion(.failure(.noData))
@@ -28,7 +28,7 @@ final class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let dataModel = try decoder.decode(Response.self, from: data)
+                let dataModel = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(dataModel))
                 }
