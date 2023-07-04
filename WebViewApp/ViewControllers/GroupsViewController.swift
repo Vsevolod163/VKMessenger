@@ -45,7 +45,7 @@ final class GroupsViewController: UITableViewController {
     private func fetchData() {
         let groupUrl = URL(string: "https://api.vk.com/method/groups.get?user_ids=\(userID ?? "")&access_token=\(token ?? "")&v=5.131")!
         
-        networkManager.fetch(from: groupUrl) { result in
+        networkManager.fetch(FriendResponse.self, from: groupUrl) { result in
             switch result {
             case .success(let group):
                 print(group.response.items)

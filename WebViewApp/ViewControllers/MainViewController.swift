@@ -53,7 +53,7 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.cancel)
         webView.removeFromSuperview()
         
-        let tabBarController = InfoTabBarController()
+        let tabBarController = UITabBarController()
     
         tabBarController.tabBar.backgroundColor = .darkGray
         tabBarController.tabBar.tintColor = .white
@@ -81,12 +81,9 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         photosVC.title = "Photos"
         photosVC.tabBarItem.image = UIImage(systemName: "photo")
         
-        groupsVC.token = token
-        groupsVC.userID = userID
-        
         tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
         
-        present(tabBarController, animated: true)
+        navigationController?.pushViewController(tabBarController, animated: true)
     }
     
     private func setConstraints() {
