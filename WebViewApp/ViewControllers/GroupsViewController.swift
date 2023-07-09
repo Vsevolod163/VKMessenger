@@ -20,7 +20,7 @@ final class GroupsViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let groupUrl = URL(string: "https://api.vk.com/method/groups.get?user_ids=\(userID ?? "")&access_token=\(token ?? "")&v=5.131")!
+        let groupUrl = URL(string: "https://api.vk.com/method/groups.get?user_id=\(userID ?? "")&extended=1&fields=description&access_token=\(token ?? "")&v=5.131")!
         
         networkManager.fetch(GroupResponse.self, from: groupUrl) { result in
             switch result {
