@@ -19,12 +19,14 @@ struct Item: Decodable {
     let photoOneHundred: String
     let firstName: String
     let lastName: String
+    let online: Int
     
     enum CodingKeys: String, CodingKey {
         case city
         case photoOneHundred = "photo_100"
         case firstName = "first_name"
         case lastName = "last_name"
+        case online
     }
 }
 
