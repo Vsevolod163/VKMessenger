@@ -12,6 +12,7 @@ final class GroupViewCell: UITableViewCell {
     private lazy var groupImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
         return imageView
@@ -21,6 +22,7 @@ final class GroupViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.textColor = .white
         
         return label
     }()
@@ -30,6 +32,7 @@ final class GroupViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .white
         
         return label
     }()

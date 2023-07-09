@@ -11,7 +11,9 @@ import Kingfisher
 final class FriendViewCell: UITableViewCell {
     private lazy var friendImageView: UIImageView = {
         let imageView = UIImageView()
+        
         imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         
         return imageView
@@ -21,6 +23,7 @@ final class FriendViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.textColor = .white
         
         return label
     }()
@@ -30,6 +33,7 @@ final class FriendViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .white
         
         return label
     }()

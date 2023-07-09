@@ -21,7 +21,7 @@ final class FriendsViewController: UITableViewController {
         tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
         tableView.rowHeight = 130
-        
+        view.backgroundColor = .black
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,6 +33,7 @@ final class FriendsViewController: UITableViewController {
         guard let cell = cell as? FriendViewCell else { return UITableViewCell() }
         
         cell.selectionStyle = .none
+        cell.backgroundColor = .black
         let item = items[indexPath.row]
         cell.configure(with: item)
         

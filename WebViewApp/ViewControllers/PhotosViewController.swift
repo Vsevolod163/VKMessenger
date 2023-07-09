@@ -22,6 +22,7 @@ final class PhotosViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView!.register(PhotoViewCell.self, forCellWithReuseIdentifier: cellID)
         fetchData()
+        collectionView.backgroundColor = .black
     }
     
     // MARK: UICollectionViewDataSource
@@ -74,7 +75,7 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = collectionView.frame.width - paddingWidth
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: collectionView.frame.height / 7)
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
