@@ -20,7 +20,7 @@ final class FriendsViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(userID ?? "")&fields=bdays,city,photo_100&access_token=\(token ?? "")&v=5.131")!
+        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(userID ?? "")&fields=bdays,city,photo_100,online&access_token=\(token ?? "")&v=5.131")!
         
         networkManager.fetch(FriendResponse.self, from: friendURL) { result in
             switch result {
