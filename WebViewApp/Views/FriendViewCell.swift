@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendViewCell: UITableViewCell {
+final class FriendViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

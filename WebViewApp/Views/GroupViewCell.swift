@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupViewCell: UITableViewCell {
+final class GroupViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
