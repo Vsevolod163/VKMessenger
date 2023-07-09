@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6237B132A5B49DA00347F55 /* FriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6237B122A5B49DA00347F55 /* FriendViewCell.swift */; };
 		C623B7A32A51F6E0009AC14A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623B7A22A51F6E0009AC14A /* AppDelegate.swift */; };
 		C623B7A52A51F6E0009AC14A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623B7A42A51F6E0009AC14A /* SceneDelegate.swift */; };
 		C623B7A72A51F6E0009AC14A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623B7A62A51F6E0009AC14A /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6237B122A5B49DA00347F55 /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
 		C623B79F2A51F6E0009AC14A /* WebViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C623B7A22A51F6E0009AC14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C623B7A42A51F6E0009AC14A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6237B112A5B49A500347F55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6237B122A5B49DA00347F55 /* FriendViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C623B7962A51F6E0009AC14A = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		C623B7A12A51F6E0009AC14A /* WebViewApp */ = {
 			isa = PBXGroup;
 			children = (
+				C6237B112A5B49A500347F55 /* Views */,
 				C67D61BE2A535F1A0027D92A /* Models */,
 				C67D61BD2A535F0F0027D92A /* ViewControllers */,
 				C67D61BB2A535EF70027D92A /* Storyboards */,
@@ -205,6 +216,7 @@
 			files = (
 				C67D61CC2A537B990027D92A /* PhotoResponse.swift in Sources */,
 				C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */,
+				C6237B132A5B49DA00347F55 /* FriendViewCell.swift in Sources */,
 				C6FB83832A53F5B500A510B4 /* GroupResponse.swift in Sources */,
 				C623B7A72A51F6E0009AC14A /* MainViewController.swift in Sources */,
 				C67D61B52A535E4F0027D92A /* FriendsViewController.swift in Sources */,
