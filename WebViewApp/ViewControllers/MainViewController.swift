@@ -49,6 +49,10 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         let userID = params["user_id"] ?? ""
         print(token as String)
         print(userID as String)
+        
+        NetworkManager.token = token
+        NetworkManager.userID = userID
+        
         decisionHandler(.cancel)
         webView.removeFromSuperview()
         
@@ -71,24 +75,18 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         let flowLayout = UICollectionViewFlowLayout()
         let photosVC = PhotosViewController(collectionViewLayout: flowLayout)
 
-        friendsVC.token = token
-        friendsVC.userID = userID
         friendsVC.title = "Friends"
         friendsVC.tabBarItem.image = UIImage(systemName: "person")
 
-        groupsVC.token = token
-        groupsVC.userID = userID
         groupsVC.title = "Groups"
         groupsVC.tabBarItem.image = UIImage(systemName: "person.2")
 
-        photosVC.token = token
-        photosVC.userID = userID
         photosVC.title = "Photos"
         photosVC.tabBarItem.image = UIImage(systemName: "photo")
 
-        tabBarController.viewControllers = [friendsVC, groupsVC, photosVC]
+        tabBarController.viewControllers = [UINavigationController.init(rootViewController: friendsVC), groupsVC, photosVC]
         tabBarController.navigationItem.hidesBackButton = true
-
+        
         return tabBarController
     }
     

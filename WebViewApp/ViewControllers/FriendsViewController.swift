@@ -9,15 +9,15 @@ import UIKit
 
 final class FriendsViewController: UITableViewController {
 
-    var token: String!
-    var userID: String!
-    
     private let cellID = "friend"
     private let networkManager = NetworkManager.shared
     private var items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(profileButtonPressed))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
         tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
         tableView.rowHeight = 130
@@ -40,8 +40,12 @@ final class FriendsViewController: UITableViewController {
         return cell
     }
     
+    @objc private func profileButtonPressed() {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
+    
     private func fetchData() {
-        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(userID ?? "")&fields=bdays,city,photo_100,online&access_token=\(token ?? "")&v=5.131")!
+        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(NetworkManager.userID)&fields=bdays,city,photo_100,online&access_token=\(NetworkManager.token)&v=5.131")!
         
         networkManager.fetch(FriendResponse.self, from: friendURL) { [weak self] result in
             switch result {

@@ -58,7 +58,7 @@ final class FriendViewCell: UITableViewCell {
     }
     
     func configure(with item: Item) {
-        fullNameLabel.text = "\(item.firstName) \(item.lastName)"
+        fullNameLabel.text = "\(item.firstName ?? "") \(item.lastName ?? "")"
         cityLabel.text = item.city?.title
         if item.online == 1 {
             onlineStatusLabel.textColor = .systemGreen
@@ -67,7 +67,7 @@ final class FriendViewCell: UITableViewCell {
             onlineStatusLabel.textColor = .systemRed
             onlineStatusLabel.text = "Offline"
         }
-        friendImageView.kf.setImage(with: URL(string: item.photoOneHundred))
+        friendImageView.kf.setImage(with: URL(string: item.photoOneHundred ?? ""))
     }
     
     private func setConstraints() {

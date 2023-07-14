@@ -8,10 +8,7 @@
 import UIKit
 
 final class PhotosViewController: UICollectionViewController {
-    
-    var token: String!
-    var userID: String!
-    
+
     private let cellID = "photo"
     private let networkManager = NetworkManager.shared
     private let itemsPerRow: CGFloat = 2
@@ -52,7 +49,7 @@ final class PhotosViewController: UICollectionViewController {
     }
     
     private func fetchData() {
-        let photoUrl = URL(string: "https://api.vk.com/method/photos.getAll?user_ids=\(userID ?? "")&access_token=\(token ?? "")&v=5.131")!
+        let photoUrl = URL(string: "https://api.vk.com/method/photos.getAll?user_ids=\(NetworkManager.userID)&access_token=\(NetworkManager.token)&v=5.131")!
         
         networkManager.fetch(PhotoResponse.self, from: photoUrl) { [weak self] result in
             switch result {

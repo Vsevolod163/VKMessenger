@@ -9,9 +9,6 @@ import UIKit
 
 final class GroupsViewController: UITableViewController {
     
-    var token: String!
-    var userID: String!
-    
     private let cellID = "group"
     private let networkManager = NetworkManager.shared
     private var groups: [Group] = []
@@ -41,7 +38,7 @@ final class GroupsViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let groupUrl = URL(string: "https://api.vk.com/method/groups.get?user_id=\(userID ?? "")&extended=1&fields=description&access_token=\(token ?? "")&v=5.131")!
+        let groupUrl = URL(string: "https://api.vk.com/method/groups.get?user_id=\(NetworkManager.userID)&extended=1&fields=description&access_token=\(NetworkManager.token)&v=5.131")!
         
         networkManager.fetch(GroupResponse.self, from: groupUrl) { [weak self] result in
             switch result {
