@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 final class ProfileViewController: UIViewController {
-
+    
     private let networkManager = NetworkManager.shared
     private var items: [User] = []
     
@@ -36,6 +36,13 @@ final class ProfileViewController: UIViewController {
         setupSubviews(userImage, nameLabel)
         setConstraints()
         fetchData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        userImage.pulsate()
+        nameLabel.pulsate()
     }
     
     private func fetchData() {
@@ -46,7 +53,7 @@ final class ProfileViewController: UIViewController {
             switch result {
             case .success(let response):
                 self?.items = response.response
-            
+                
                 self?.userImage.kf.setImage(with: URL(string: self?.items.first?.photoTwoHundred ?? ""))
                 self?.nameLabel.text = "\(self?.items.first?.firstName ?? "ыппыпывпыв") \(self?.items.first?.lastName ?? "")"
             case .failure(let error):
@@ -79,3 +86,6 @@ final class ProfileViewController: UIViewController {
         )
     }
 }
+
+
+
