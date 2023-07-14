@@ -9,8 +9,12 @@ import UIKit
 
 final class ChatViewController: UIViewController {
 
+    var id: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .black
+        navigationController?.navigationBar.tintColor = .white
+        print(id)
     }
 }
