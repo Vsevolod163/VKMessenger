@@ -37,7 +37,7 @@
 		C6237B122A5B49DA00347F55 /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
 		C6237B142A5B49FA00347F55 /* GroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewCell.swift; sourceTree = "<group>"; };
 		C6237B162A5B4A1F00347F55 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
-		C623B79F2A51F6E0009AC14A /* WebViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C623B79F2A51F6E0009AC14A /* VKMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C623B7A22A51F6E0009AC14A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C623B7A42A51F6E0009AC14A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C623B7A62A51F6E0009AC14A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		C623B7962A51F6E0009AC14A = {
 			isa = PBXGroup;
 			children = (
-				C623B7A12A51F6E0009AC14A /* WebViewApp */,
+				C623B7A12A51F6E0009AC14A /* VKMessenger */,
 				C623B7A02A51F6E0009AC14A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,12 +94,12 @@
 		C623B7A02A51F6E0009AC14A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C623B79F2A51F6E0009AC14A /* WebViewApp.app */,
+				C623B79F2A51F6E0009AC14A /* VKMessenger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C623B7A12A51F6E0009AC14A /* WebViewApp */ = {
+		C623B7A12A51F6E0009AC14A /* VKMessenger */ = {
 			isa = PBXGroup;
 			children = (
 				C6237B112A5B49A500347F55 /* Views */,
@@ -108,11 +108,11 @@
 				C67D61BB2A535EF70027D92A /* Storyboards */,
 				C67D61C82A5362DE0027D92A /* Services */,
 				C6249E4D2A61720A0020A704 /* Extensions */,
+				C69D4D492A62162200345A20 /* Transformers */,
 				C67D61BC2A535F000027D92A /* Sources */,
 				C67D61BA2A535EE20027D92A /* App */,
-				C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */,
 			);
-			path = WebViewApp;
+			path = VKMessenger;
 			sourceTree = "<group>";
 		};
 		C6249E4D2A61720A0020A704 /* Extensions */ = {
@@ -184,12 +184,20 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C69D4D492A62162200345A20 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C623B79E2A51F6E0009AC14A /* WebViewApp */ = {
+		C623B79E2A51F6E0009AC14A /* VKMessenger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C623B7B32A51F6E1009AC14A /* Build configuration list for PBXNativeTarget "WebViewApp" */;
+			buildConfigurationList = C623B7B32A51F6E1009AC14A /* Build configuration list for PBXNativeTarget "VKMessenger" */;
 			buildPhases = (
 				C623B79B2A51F6E0009AC14A /* Sources */,
 				C623B79C2A51F6E0009AC14A /* Frameworks */,
@@ -199,12 +207,12 @@
 			);
 			dependencies = (
 			);
-			name = WebViewApp;
+			name = VKMessenger;
 			packageProductDependencies = (
 				C6237B192A5B569800347F55 /* Kingfisher */,
 			);
 			productName = WebViewApp;
-			productReference = C623B79F2A51F6E0009AC14A /* WebViewApp.app */;
+			productReference = C623B79F2A51F6E0009AC14A /* VKMessenger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -222,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C623B79A2A51F6E0009AC14A /* Build configuration list for PBXProject "WebViewApp" */;
+			buildConfigurationList = C623B79A2A51F6E0009AC14A /* Build configuration list for PBXProject "VKMessenger" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -238,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C623B79E2A51F6E0009AC14A /* WebViewApp */,
+				C623B79E2A51F6E0009AC14A /* VKMessenger */,
 			);
 		};
 /* End PBXProject section */
@@ -421,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewApp/App/Info.plist;
+				INFOPLIST_FILE = VKMessenger/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -432,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lashin.WebViewApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lashin.VKMessenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -452,7 +460,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewApp/App/Info.plist;
+				INFOPLIST_FILE = VKMessenger/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -463,7 +471,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lashin.WebViewApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lashin.VKMessenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -477,7 +485,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C623B79A2A51F6E0009AC14A /* Build configuration list for PBXProject "WebViewApp" */ = {
+		C623B79A2A51F6E0009AC14A /* Build configuration list for PBXProject "VKMessenger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C623B7B12A51F6E1009AC14A /* Debug */,
@@ -486,7 +494,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C623B7B32A51F6E1009AC14A /* Build configuration list for PBXNativeTarget "WebViewApp" */ = {
+		C623B7B32A51F6E1009AC14A /* Build configuration list for PBXNativeTarget "VKMessenger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C623B7B42A51F6E1009AC14A /* Debug */,

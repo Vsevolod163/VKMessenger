@@ -22,10 +22,11 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         view.addSubview(webView)
         setConstraints()
         
-        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51695654&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
+        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51704491&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {

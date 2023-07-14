@@ -76,7 +76,10 @@ extension FriendsViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ChatViewController(), animated: true)
+        let chatVC = ChatViewController()
+        chatVC.id = items[indexPath.row].id
+        
+        navigationController?.pushViewController(chatVC, animated: true)
     }
 }
 
