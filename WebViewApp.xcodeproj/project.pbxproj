@@ -27,6 +27,9 @@
 		C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C92A5362F10027D92A /* NetworkManager.swift */; };
 		C67D61CC2A537B990027D92A /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61CB2A537B990027D92A /* PhotoResponse.swift */; };
 		C6F2D8CC2A61EE3100649F69 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */; };
+		C6F2D8CF2A61F1BD00649F69 /* ChatList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */; };
+		C6F2D8D12A61F87600649F69 /* NSArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */; };
+		C6F2D8D32A61FC4500649F69 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8D22A61FC4500649F69 /* StorageManager.swift */; };
 		C6FB83832A53F5B500A510B4 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FB83822A53F5B500A510B4 /* GroupResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		C67D61C92A5362F10027D92A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C67D61CB2A537B990027D92A /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		C6F2D8CE2A61F1BD00649F69 /* ChatList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatList.xcdatamodel; sourceTree = "<group>"; };
+		C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSArrayTransformer.swift; sourceTree = "<group>"; };
+		C6F2D8D22A61FC4500649F69 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		C6FB83822A53F5B500A510B4 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +110,7 @@
 				C6249E4D2A61720A0020A704 /* Extensions */,
 				C67D61BC2A535F000027D92A /* Sources */,
 				C67D61BA2A535EE20027D92A /* App */,
+				C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */,
 			);
 			path = WebViewApp;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 				C6FB83822A53F5B500A510B4 /* GroupResponse.swift */,
 				C67D61CB2A537B990027D92A /* PhotoResponse.swift */,
 				C6249E4B2A615F7B0020A704 /* UserResponse.swift */,
+				C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				C67D61C92A5362F10027D92A /* NetworkManager.swift */,
+				C6F2D8D22A61FC4500649F69 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,9 +263,11 @@
 				C67D61CC2A537B990027D92A /* PhotoResponse.swift in Sources */,
 				C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */,
 				C6237B152A5B49FA00347F55 /* GroupViewCell.swift in Sources */,
+				C6F2D8D32A61FC4500649F69 /* StorageManager.swift in Sources */,
 				C6237B132A5B49DA00347F55 /* FriendViewCell.swift in Sources */,
 				C6249E4A2A613C590020A704 /* ProfileViewController.swift in Sources */,
 				C6FB83832A53F5B500A510B4 /* GroupResponse.swift in Sources */,
+				C6F2D8D12A61F87600649F69 /* NSArrayTransformer.swift in Sources */,
 				C6237B172A5B4A1F00347F55 /* PhotoViewCell.swift in Sources */,
 				C6249E4F2A6172210020A704 /* Extension + UIImageView.swift in Sources */,
 				C6249E512A61722E0020A704 /* Extensions + UILabel.swift in Sources */,
@@ -269,6 +280,7 @@
 				C623B7A52A51F6E0009AC14A /* SceneDelegate.swift in Sources */,
 				C6F2D8CC2A61EE3100649F69 /* ChatViewController.swift in Sources */,
 				C67D61C72A5361D10027D92A /* FriendResponse.swift in Sources */,
+				C6F2D8CF2A61F1BD00649F69 /* ChatList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +515,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C6F2D8CE2A61F1BD00649F69 /* ChatList.xcdatamodel */,
+			);
+			currentVersion = C6F2D8CE2A61F1BD00649F69 /* ChatList.xcdatamodel */;
+			path = ChatList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C623B7972A51F6E0009AC14A /* Project object */;
 }
