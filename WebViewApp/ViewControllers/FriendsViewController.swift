@@ -70,5 +70,6 @@ final class FriendsViewController: UITableViewController {
             }
         }
     }
-
 }
+
+

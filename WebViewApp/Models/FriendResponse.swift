@@ -15,6 +15,7 @@ struct Response: Decodable {
 }
 
 struct Item: Decodable {
+    let id: Int
     let city: City?
     let photoTwoHundred: String?
     let firstName: String?
@@ -22,6 +23,7 @@ struct Item: Decodable {
     let online: Int
     
     enum CodingKeys: String, CodingKey {
+        case id
         case city
         case photoTwoHundred = "photo_200_orig"
         case firstName = "first_name"
