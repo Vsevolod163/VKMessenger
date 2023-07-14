@@ -15,6 +15,8 @@ enum NetworkError: Error {
 
 final class NetworkManager {
     static var shared = NetworkManager()
+    static var token = ""
+    static var userID = ""
     
     private init() {}
     
