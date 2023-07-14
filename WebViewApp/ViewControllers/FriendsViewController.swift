@@ -45,12 +45,13 @@ final class FriendsViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(NetworkManager.userID)&fields=bdays,city,photo_100,online&access_token=\(NetworkManager.token)&v=5.131")!
+        let friendURL = URL(string: "https://api.vk.com/method/friends.get?user_ids=\(NetworkManager.userID)&fields=bdays,city,photo_200_orig,online&access_token=\(NetworkManager.token)&v=5.131")!
         
         networkManager.fetch(FriendResponse.self, from: friendURL) { [weak self] result in
             switch result {
             case .success(let response):
                 self?.items = response.response.items
+                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }

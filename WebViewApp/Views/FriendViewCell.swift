@@ -67,7 +67,7 @@ final class FriendViewCell: UITableViewCell {
             onlineStatusLabel.textColor = .systemRed
             onlineStatusLabel.text = "Offline"
         }
-        friendImageView.kf.setImage(with: URL(string: item.photoOneHundred ?? ""))
+        friendImageView.kf.setImage(with: URL(string: item.photoTwoHundred ?? ""))
     }
     
     private func setConstraints() {

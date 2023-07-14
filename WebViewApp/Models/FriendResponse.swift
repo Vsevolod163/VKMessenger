@@ -16,14 +16,14 @@ struct Response: Decodable {
 
 struct Item: Decodable {
     let city: City?
-    let photoOneHundred: String?
+    let photoTwoHundred: String?
     let firstName: String?
     let lastName: String?
     let online: Int
     
     enum CodingKeys: String, CodingKey {
         case city
-        case photoOneHundred = "photo_100"
+        case photoTwoHundred = "photo_200_orig"
         case firstName = "first_name"
         case lastName = "last_name"
         case online

@@ -10,7 +10,13 @@ struct UserResponse: Decodable {
 }
 
 struct User: Decodable {
-    let photo_100: String
-    let first_name: String
-    let last_name: String
+    let photoTwoHundred: String
+    let firstName: String
+    let lastName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case photoTwoHundred = "photo_200"
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
 }
