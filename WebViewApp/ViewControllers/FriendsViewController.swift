@@ -15,7 +15,12 @@ final class FriendsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(profileButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "person"),
+            style: .plain,
+            target: self,
+            action: #selector(profileButtonPressed)
+        )
         navigationItem.rightBarButtonItem?.tintColor = .white
         
         tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
@@ -41,6 +46,11 @@ final class FriendsViewController: UITableViewController {
     }
     
     @objc private func profileButtonPressed() {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        animation.type = .push
+        animation.duration = 0.5
+        navigationController?.view.layer.add(animation, forKey: nil)
         navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
