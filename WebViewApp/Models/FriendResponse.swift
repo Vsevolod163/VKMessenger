@@ -16,9 +16,9 @@ struct Response: Decodable {
 
 struct Item: Decodable {
     let city: City?
-    let photoOneHundred: String
-    let firstName: String
-    let lastName: String
+    let photoOneHundred: String?
+    let firstName: String?
+    let lastName: String?
     let online: Int
     
     enum CodingKeys: String, CodingKey {
