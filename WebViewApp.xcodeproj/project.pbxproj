@@ -26,6 +26,7 @@
 		C67D61C72A5361D10027D92A /* FriendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C62A5361D10027D92A /* FriendResponse.swift */; };
 		C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C92A5362F10027D92A /* NetworkManager.swift */; };
 		C67D61CC2A537B990027D92A /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61CB2A537B990027D92A /* PhotoResponse.swift */; };
+		C6F2D8CC2A61EE3100649F69 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */; };
 		C6FB83832A53F5B500A510B4 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FB83822A53F5B500A510B4 /* GroupResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		C67D61C62A5361D10027D92A /* FriendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendResponse.swift; sourceTree = "<group>"; };
 		C67D61C92A5362F10027D92A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C67D61CB2A537B990027D92A /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
+		C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C6FB83822A53F5B500A510B4 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				C67D61B62A535E5E0027D92A /* GroupsViewController.swift */,
 				C67D61B82A535E700027D92A /* PhotosViewController.swift */,
 				C6249E492A613C590020A704 /* ProfileViewController.swift */,
+				C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				C623B7A32A51F6E0009AC14A /* AppDelegate.swift in Sources */,
 				C67D61B92A535E700027D92A /* PhotosViewController.swift in Sources */,
 				C623B7A52A51F6E0009AC14A /* SceneDelegate.swift in Sources */,
+				C6F2D8CC2A61EE3100649F69 /* ChatViewController.swift in Sources */,
 				C67D61C72A5361D10027D92A /* FriendResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

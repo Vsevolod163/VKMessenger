@@ -29,22 +29,6 @@ final class FriendsViewController: UITableViewController {
         view.backgroundColor = .black
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        guard let cell = cell as? FriendViewCell else { return UITableViewCell() }
-        
-        cell.selectionStyle = .none
-        cell.backgroundColor = .black
-        let item = items[indexPath.row]
-        cell.configure(with: item)
-        
-        return cell
-    }
-    
     @objc private func profileButtonPressed() {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
@@ -72,4 +56,27 @@ final class FriendsViewController: UITableViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+extension FriendsViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        guard let cell = cell as? FriendViewCell else { return UITableViewCell() }
+        
+        cell.selectionStyle = .none
+        cell.backgroundColor = .black
+        let item = items[indexPath.row]
+        cell.configure(with: item)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(ChatViewController(), animated: true)
+    }
+}
 
