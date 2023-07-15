@@ -22,7 +22,7 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
         view.addSubview(webView)
         setConstraints()
         
-        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51704491&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
+        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51704618&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
             let request = URLRequest(url: url)
             webView.load(request)
         }

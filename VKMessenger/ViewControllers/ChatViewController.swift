@@ -39,6 +39,7 @@ final class ChatViewController: UIViewController {
                 print(chat.messages ?? [])
                 return
             }
+            print(chat.id)
         }
     
         storageManager.create(id: id, messages: ["Hello", "How are you?"])
