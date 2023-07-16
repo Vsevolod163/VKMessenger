@@ -68,28 +68,27 @@ final class ChatViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         navigationController?.navigationBar.tintColor = .white
-
-        storageManager.fetchData { result in
-            switch result {
-            case .success(let chats):
-                allChats = chats
-            case .failure(let failure):
-                print(failure)
-            }
-        }
-        
-        checkChat()
-        fetchChats()
-        fetchData()
         
         setupSubviews(userImage, nameLabel, messageTF, messagesTableView, sendButton)
         setConstraints()
+        
+        fetchChats()
+        fetchData()
+        checkChat()
+        
         messagesTableView.dataSource = self
+        messagesTableView.delegate = self
         messagesTableView.register(ChatViewCell.self, forCellReuseIdentifier: cellID)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     private func sendButtonPressed() {
-        
+        checkChat()
+        messageTF.text = ""
     }
     
     private func setupSubviews(_ subviews: UIView...) {
@@ -115,16 +114,17 @@ final class ChatViewController: UIViewController {
                 nameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 20),
                 nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                nameLabel.heightAnchor.constraint(equalToConstant: 20),
                 
                 messageTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 messageTF.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -8),
                 messageTF.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
-                
+
                 sendButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
                 sendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 sendButton.widthAnchor.constraint(equalToConstant: 40),
                 sendButton.heightAnchor.constraint(equalTo: messageTF.heightAnchor, multiplier: 1),
-                
+
                 messagesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 messagesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 messagesTableView.topAnchor.constraint(equalTo: messageTF.bottomAnchor, constant: 8),
@@ -150,19 +150,19 @@ final class ChatViewController: UIViewController {
         }
     }
     
-    
     private func checkChat() {
         for chat in allChats {
             if chat.id == id {
                 currentChat = chat
-                storageManager.update(chat, message: "New")
-                print(chat.messages ?? [])
+                if !(messageTF.text ?? "").isEmpty {
+                    storageManager.update(chat, message: messageTF.text ?? "")
+                    messagesTableView.reloadData()
+                }
                 return
             }
-            print(chat.id)
         }
     
-        storageManager.create(id: id, messages: ["Hello", "How are you?"])
+        storageManager.create(id: id, messages: [])
         fetchChats()
         
         for chat in allChats {
@@ -170,6 +170,8 @@ final class ChatViewController: UIViewController {
                 currentChat = chat
             }
         }
+        
+        messagesTableView.reloadData()
     }
     
     private func fetchChats() {
@@ -203,6 +205,11 @@ extension ChatViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+// MARK: -
+extension ChatViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
