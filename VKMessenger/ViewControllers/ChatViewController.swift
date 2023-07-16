@@ -42,6 +42,21 @@ final class ChatViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var sendButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.up"), for: .normal)
+        button.backgroundColor = .orange
+        button.imageView?.tintColor = .white
+        button.layer.cornerRadius = 5
+        button.clipsToBounds = true
+        let action = UIAction { [weak self] _ in
+            self?.sendButtonPressed()
+        }
+        button.addAction(action, for: .touchUpInside)
+        
+        return button
+    }()
+    
     private var allChats: [Chat]!
     private var currentChat: Chat!
     private var items: [User] = []
@@ -64,12 +79,17 @@ final class ChatViewController: UIViewController {
         }
         
         checkChat()
+        fetchChats()
         fetchData()
         
-        setupSubviews(userImage, nameLabel, messageTF, messagesTableView)
+        setupSubviews(userImage, nameLabel, messageTF, messagesTableView, sendButton)
         setConstraints()
         messagesTableView.dataSource = self
         messagesTableView.register(ChatViewCell.self, forCellReuseIdentifier: cellID)
+    }
+    
+    private func sendButtonPressed() {
+        
     }
     
     private func setupSubviews(_ subviews: UIView...) {
@@ -83,6 +103,7 @@ final class ChatViewController: UIViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         messageTF.translatesAutoresizingMaskIntoConstraints = false
         messagesTableView.translatesAutoresizingMaskIntoConstraints = false
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate(
             [
@@ -96,8 +117,13 @@ final class ChatViewController: UIViewController {
                 nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 
                 messageTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                messageTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                messageTF.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -8),
                 messageTF.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+                
+                sendButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+                sendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                sendButton.widthAnchor.constraint(equalToConstant: 40),
+                sendButton.heightAnchor.constraint(equalTo: messageTF.heightAnchor, multiplier: 1),
                 
                 messagesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 messagesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
@@ -137,13 +163,35 @@ final class ChatViewController: UIViewController {
         }
     
         storageManager.create(id: id, messages: ["Hello", "How are you?"])
+        fetchChats()
+        
+        for chat in allChats {
+            if chat.id == id {
+                currentChat = chat
+            }
+        }
+    }
+    
+    private func fetchChats() {
+        storageManager.fetchData { result in
+            switch result {
+            case .success(let chats):
+                allChats = chats
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
 // MARK: - UITableViewDataSource
 extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currentChat.messages?.count ?? 0
+        if currentChat == nil {
+            return 0
+        } else {
+            return currentChat.messages?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
