@@ -90,6 +90,30 @@ final class ChatViewController: UIViewController {
         checkChat()
         messageTF.text = ""
     }
+
+    private func checkChat() {
+        for chat in allChats {
+            if chat.id == id {
+                currentChat = chat
+                if !(messageTF.text ?? "").isEmpty {
+                    storageManager.update(chat, message: messageTF.text ?? "")
+                    messagesTableView.reloadData()
+                }
+                return
+            }
+        }
+        
+        storageManager.create(id: id, messages: [])
+        fetchChats()
+        
+        for chat in allChats {
+            if chat.id == id {
+                currentChat = chat
+            }
+        }
+        
+        messagesTableView.reloadData()
+    }
     
     private func setupSubviews(_ subviews: UIView...) {
         subviews.forEach { subview in
@@ -148,30 +172,6 @@ final class ChatViewController: UIViewController {
                 print(error)
             }
         }
-    }
-    
-    private func checkChat() {
-        for chat in allChats {
-            if chat.id == id {
-                currentChat = chat
-                if !(messageTF.text ?? "").isEmpty {
-                    storageManager.update(chat, message: messageTF.text ?? "")
-                    messagesTableView.reloadData()
-                }
-                return
-            }
-        }
-    
-        storageManager.create(id: id, messages: [])
-        fetchChats()
-        
-        for chat in allChats {
-            if chat.id == id {
-                currentChat = chat
-            }
-        }
-        
-        messagesTableView.reloadData()
     }
     
     private func fetchChats() {
