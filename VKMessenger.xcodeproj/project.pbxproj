@@ -27,6 +27,7 @@
 		C67D61C72A5361D10027D92A /* FriendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C62A5361D10027D92A /* FriendResponse.swift */; };
 		C67D61CA2A5362F10027D92A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61C92A5362F10027D92A /* NetworkManager.swift */; };
 		C67D61CC2A537B990027D92A /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D61CB2A537B990027D92A /* PhotoResponse.swift */; };
+		C68352452A67EF9400D656F2 /* FriendList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C68352432A67EF9400D656F2 /* FriendList.xcdatamodeld */; };
 		C6F2D8CC2A61EE3100649F69 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */; };
 		C6F2D8CF2A61F1BD00649F69 /* ChatList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */; };
 		C6F2D8D12A61F87600649F69 /* NSArrayTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */; };
@@ -56,6 +57,7 @@
 		C67D61C62A5361D10027D92A /* FriendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendResponse.swift; sourceTree = "<group>"; };
 		C67D61C92A5362F10027D92A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C67D61CB2A537B990027D92A /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
+		C68352442A67EF9400D656F2 /* FriendList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FriendList.xcdatamodel; sourceTree = "<group>"; };
 		C6F2D8CB2A61EE3100649F69 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C6F2D8CE2A61F1BD00649F69 /* ChatList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatList.xcdatamodel; sourceTree = "<group>"; };
 		C6F2D8D02A61F87600649F69 /* NSArrayTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSArrayTransformer.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				C67D61CB2A537B990027D92A /* PhotoResponse.swift */,
 				C6249E4B2A615F7B0020A704 /* UserResponse.swift */,
 				C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */,
+				C68352432A67EF9400D656F2 /* FriendList.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				C6249E4A2A613C590020A704 /* ProfileViewController.swift in Sources */,
 				C6FB83832A53F5B500A510B4 /* GroupResponse.swift in Sources */,
 				C6F2D8D12A61F87600649F69 /* NSArrayTransformer.swift in Sources */,
+				C68352452A67EF9400D656F2 /* FriendList.xcdatamodeld in Sources */,
 				C6237B172A5B4A1F00347F55 /* PhotoViewCell.swift in Sources */,
 				C6249E4F2A6172210020A704 /* Extension + UIImageView.swift in Sources */,
 				C6249E512A61722E0020A704 /* Extensions + UILabel.swift in Sources */,
@@ -529,6 +533,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		C68352432A67EF9400D656F2 /* FriendList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C68352442A67EF9400D656F2 /* FriendList.xcdatamodel */,
+			);
+			currentVersion = C68352442A67EF9400D656F2 /* FriendList.xcdatamodel */;
+			path = FriendList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		C6F2D8CD2A61F1BD00649F69 /* ChatList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
