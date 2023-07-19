@@ -5,6 +5,7 @@
 //  Created by Vsevolod Lashin on 03.07.2023.
 //
 
+
 import UIKit
 
 final class PhotosViewController: UICollectionViewController {
