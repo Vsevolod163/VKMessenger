@@ -5,4 +5,5 @@
         <attribute name="messages" attributeType="Transformable" valueTransformerName="VKMessenger.NSArrayTransformer" customClassName="[String]"/>
     </entity>
     <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class"/>
+    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class"/>
 </model>
