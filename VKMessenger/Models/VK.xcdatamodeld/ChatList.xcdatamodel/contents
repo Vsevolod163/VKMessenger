@@ -4,4 +4,5 @@
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="messages" attributeType="Transformable" valueTransformerName="VKMessenger.NSArrayTransformer" customClassName="[String]"/>
     </entity>
+    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class"/>
 </model>
