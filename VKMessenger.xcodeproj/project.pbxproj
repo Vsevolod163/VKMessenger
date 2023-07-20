@@ -109,8 +109,8 @@
 		C623B7A12A51F6E0009AC14A /* VKMessenger */ = {
 			isa = PBXGroup;
 			children = (
-				C6237B112A5B49A500347F55 /* Views */,
 				C67D61BE2A535F1A0027D92A /* Models */,
+				C6237B112A5B49A500347F55 /* Views */,
 				C67D61BD2A535F0F0027D92A /* ViewControllers */,
 				C67D61BB2A535EF70027D92A /* Storyboards */,
 				C67D61C82A5362DE0027D92A /* Services */,
