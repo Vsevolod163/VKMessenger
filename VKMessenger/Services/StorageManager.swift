@@ -12,7 +12,7 @@ final class StorageManager {
     
     // MARK: - Core Data Stack
     private let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "ChatList")
+        let container = NSPersistentContainer(name: "VK")
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
