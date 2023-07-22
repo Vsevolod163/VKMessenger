@@ -11,10 +11,10 @@ struct GroupResponse: Decodable {
 
 struct Groups: Decodable {
     let count: Int
-    let items: [Group]
+    let items: [GroupItem]
 }
 
-struct Group: Decodable {
+struct GroupItem: Decodable {
     let id: Int
     let description: String
     let name: String

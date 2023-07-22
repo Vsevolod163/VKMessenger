@@ -11,7 +11,7 @@ final class FriendsViewController: UITableViewController {
 
     private let cellID = "friend"
     private let networkManager = NetworkManager.shared
-    private var items: [Item] = []
+    private var items: [FriendItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

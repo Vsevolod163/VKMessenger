@@ -11,10 +11,10 @@ struct PhotoResponse: Decodable {
 
 struct Photos: Decodable {
     let count: Int
-    let items: [Photo]
+    let items: [PhotoItem]
 }
 
-struct Photo: Decodable {
+struct PhotoItem: Decodable {
     let sizes: [Size]
 }
 

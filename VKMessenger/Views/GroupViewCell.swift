@@ -47,7 +47,7 @@ final class GroupViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with group: Group) {
+    func configure(with group: GroupItem) {
         groupNameLabel.text = group.name
         descriptionLabel.text = group.description
         groupImageView.kf.setImage(with: URL(string: group.photoOneHundred))

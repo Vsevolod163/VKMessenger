@@ -11,7 +11,7 @@ final class GroupsViewController: UITableViewController {
     
     private let cellID = "group"
     private let networkManager = NetworkManager.shared
-    private var groups: [Group] = []
+    private var groups: [GroupItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

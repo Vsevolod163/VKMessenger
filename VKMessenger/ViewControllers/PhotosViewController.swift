@@ -13,7 +13,7 @@ final class PhotosViewController: UICollectionViewController {
     private let networkManager = NetworkManager.shared
     private let itemsPerRow: CGFloat = 2
     private let sectionsInserts = UIEdgeInsets(top: 20, left: 16, bottom: 20, right: 16)
-    private var photos: [Photo] = []
+    private var photos: [PhotoItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -57,7 +57,7 @@ final class FriendViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with item: Item) {
+    func configure(with item: FriendItem) {
         fullNameLabel.text = "\(item.firstName ?? "") \(item.lastName ?? "")"
         cityLabel.text = item.city?.title
         if item.online == 1 {
