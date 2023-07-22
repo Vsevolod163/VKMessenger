@@ -23,7 +23,7 @@ final class FriendViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = Interface.textColor
         
         return label
     }()
@@ -33,7 +33,7 @@ final class FriendViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .white
+        label.textColor = Interface.textColor
         
         return label
     }()
