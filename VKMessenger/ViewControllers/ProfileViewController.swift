@@ -29,11 +29,24 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
+    private lazy var firstThemeButton: UIButton = {
+        let button = UIButton()
+        let action = UIAction { _ in
+            Interface.viewColor = .white
+            Interface.cellColor = .white
+            Interface.textColor = .black
+        }
+        button.setTitle("White Interface", for: .normal)
+        button.addAction(action, for: .touchUpInside)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         navigationController?.navigationBar.tintColor = .white
-        setupSubviews(userImage, nameLabel)
+        setupSubviews(userImage, nameLabel, firstThemeButton)
         setConstraints()
         fetchData()
         
@@ -71,6 +84,7 @@ final class ProfileViewController: UIViewController {
     private func setConstraints() {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        firstThemeButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate(
             [
@@ -81,7 +95,9 @@ final class ProfileViewController: UIViewController {
                 
                 nameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 20),
                 nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+                nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                
+                
             ]
         )
     }
