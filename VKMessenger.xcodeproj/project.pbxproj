@@ -112,6 +112,7 @@
 				C67D61BD2A535F0F0027D92A /* ViewControllers */,
 				C67D61BB2A535EF70027D92A /* Storyboards */,
 				C67D61C82A5362DE0027D92A /* Services */,
+				C66CAD3B2A6BA1AB00188E9E /* Interfaces */,
 				C6249E4D2A61720A0020A704 /* Extensions */,
 				C69D4D492A62162200345A20 /* Transformers */,
 				C67D61BC2A535F000027D92A /* Sources */,
@@ -127,6 +128,14 @@
 				C6249E502A61722E0020A704 /* Extensions + UILabel.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C66CAD3B2A6BA1AB00188E9E /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				C6732CFB2A6B9E65003CDE7E /* Interface.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		C67D61BA2A535EE20027D92A /* App */ = {
@@ -171,7 +180,6 @@
 		C67D61BE2A535F1A0027D92A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C6732CFB2A6B9E65003CDE7E /* Interface.swift */,
 				C67D61C62A5361D10027D92A /* FriendResponse.swift */,
 				C6FB83822A53F5B500A510B4 /* GroupResponse.swift */,
 				C67D61CB2A537B990027D92A /* PhotoResponse.swift */,
