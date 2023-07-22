@@ -26,7 +26,7 @@ final class FriendsViewController: UITableViewController {
         tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
         tableView.rowHeight = 130
-        view.backgroundColor = .black
+        view.backgroundColor = Interface.viewColor
     }
     
     @objc private func profileButtonPressed() {
@@ -68,7 +68,7 @@ extension FriendsViewController {
         guard let cell = cell as? FriendViewCell else { return UITableViewCell() }
         
         cell.selectionStyle = .none
-        cell.backgroundColor = .black
+        cell.backgroundColor = Interface.cellColor
         let item = items[indexPath.row]
         cell.configure(with: item)
         
