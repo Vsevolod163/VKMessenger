@@ -4,6 +4,18 @@
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="messages" attributeType="Transformable" valueTransformerName="VKMessenger.NSArrayTransformer" customClassName="[String]"/>
     </entity>
-    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class"/>
-    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class"/>
+    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="online" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="photoTwoHundred" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
+        <attribute name="groupDescription" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photoOneHundred" optional="YES" attributeType="String"/>
+    </entity>
 </model>
