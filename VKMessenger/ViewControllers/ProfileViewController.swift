@@ -23,7 +23,7 @@ final class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = Interface.textColor
         label.textAlignment = .center
         
         return label
@@ -31,12 +31,44 @@ final class ProfileViewController: UIViewController {
     
     private lazy var firstThemeButton: UIButton = {
         let button = UIButton()
-        let action = UIAction { _ in
+        let action = UIAction { [weak self] _ in
             Interface.viewColor = .white
             Interface.cellColor = .white
             Interface.textColor = .black
+            self?.setupButton()
         }
+        button.setTitleColor(Interface.textColor, for: .normal)
         button.setTitle("White Interface", for: .normal)
+        button.addAction(action, for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var secondThemeButton: UIButton = {
+        let button = UIButton()
+        let action = UIAction { [weak self] _ in
+            Interface.viewColor = .black
+            Interface.cellColor = .black
+            Interface.textColor = .white
+            self?.setupButton()
+        }
+        button.setTitleColor(Interface.textColor, for: .normal)
+        button.setTitle("Black Interface", for: .normal)
+        button.addAction(action, for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var thirdThemeButton: UIButton = {
+        let button = UIButton()
+        let action = UIAction { [weak self] _ in
+            Interface.viewColor = .systemOrange
+            Interface.cellColor = .systemOrange
+            Interface.textColor = .yellow
+            self?.setupButton()
+        }
+        button.setTitleColor(Interface.textColor, for: .normal)
+        button.setTitle("Orange Interface", for: .normal)
         button.addAction(action, for: .touchUpInside)
         
         return button
@@ -44,18 +76,44 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        navigationController?.navigationBar.tintColor = .white
-        setupSubviews(userImage, nameLabel, firstThemeButton)
+        view.backgroundColor = Interface.viewColor
+        navigationController?.navigationBar.tintColor = Interface.textColor
+        setupSubviews(userImage, nameLabel, firstThemeButton, secondThemeButton, thirdThemeButton)
         setConstraints()
         fetchData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userImage.pulsate()
         nameLabel.pulsate()
+    }
+    
+    private func setupButton() {
+        nameLabel.textColor = Interface.textColor
+        view.backgroundColor = Interface.viewColor
+        firstThemeButton.setTitleColor(Interface.textColor, for: .normal)
+        secondThemeButton.setTitleColor(Interface.textColor, for: .normal)
+        thirdThemeButton.setTitleColor(Interface.textColor, for: .normal)
+        navigationController?.navigationBar.tintColor = Interface.textColor
+        
+        tabBarController?.viewControllers?.forEach { viewController in
+            if let groupVC = viewController as? GroupsViewController {
+                groupVC.view.backgroundColor = Interface.viewColor
+                groupVC.tableView.reloadData()
+            } else if let photoVC = viewController as? PhotosViewController {
+                photoVC.collectionView.backgroundColor = Interface.viewColor
+                photoVC.collectionView.reloadData()
+            } else if let navigationVC = viewController as? UINavigationController {
+                navigationVC.viewControllers.forEach { viewController in
+                    if let friendsVC = viewController as? FriendsViewController {
+                        friendsVC.view.backgroundColor = Interface.viewColor
+                        friendsVC.navigationItem.rightBarButtonItem?.tintColor = Interface.textColor
+                        friendsVC.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     private func fetchData() {
@@ -66,7 +124,6 @@ final class ProfileViewController: UIViewController {
             switch result {
             case .success(let response):
                 self?.items = response.response
-                
                 self?.userImage.kf.setImage(with: URL(string: self?.items.first?.photoTwoHundred ?? ""))
                 self?.nameLabel.text = "\(self?.items.first?.firstName ?? "ыппыпывпыв") \(self?.items.first?.lastName ?? "")"
             case .failure(let error):
@@ -85,6 +142,8 @@ final class ProfileViewController: UIViewController {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         firstThemeButton.translatesAutoresizingMaskIntoConstraints = false
+        secondThemeButton.translatesAutoresizingMaskIntoConstraints = false
+        thirdThemeButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate(
             [
@@ -97,7 +156,17 @@ final class ProfileViewController: UIViewController {
                 nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 
+                firstThemeButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40),
+                firstThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
+                firstThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
+                secondThemeButton.topAnchor.constraint(equalTo: firstThemeButton.bottomAnchor, constant: 20),
+                secondThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
+                secondThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                thirdThemeButton.topAnchor.constraint(equalTo: secondThemeButton.bottomAnchor, constant: 20),
+                thirdThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
+                thirdThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ]
         )
     }
