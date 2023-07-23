@@ -30,6 +30,7 @@ final class ChatViewCell: UITableViewCell {
     
     
     func configure(with message: String) {
+        messageLabel.textColor = Interface.textColor
         messageLabel.text = message
     }
     

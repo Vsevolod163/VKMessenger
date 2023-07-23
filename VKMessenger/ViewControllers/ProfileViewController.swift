@@ -156,15 +156,15 @@ final class ProfileViewController: UIViewController {
                 nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
                 nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
                 
-                firstThemeButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40),
+                firstThemeButton.bottomAnchor.constraint(equalTo: secondThemeButton.topAnchor, constant: -20),
                 firstThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
                 firstThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                secondThemeButton.topAnchor.constraint(equalTo: firstThemeButton.bottomAnchor, constant: 20),
+                secondThemeButton.bottomAnchor.constraint(equalTo: thirdThemeButton.topAnchor, constant: -20),
                 secondThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
                 secondThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                thirdThemeButton.topAnchor.constraint(equalTo: secondThemeButton.bottomAnchor, constant: 20),
+                thirdThemeButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 150),
                 thirdThemeButton.widthAnchor.constraint(equalTo: userImage.widthAnchor, multiplier: 1),
                 thirdThemeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ]

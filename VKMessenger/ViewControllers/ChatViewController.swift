@@ -22,7 +22,7 @@ final class ChatViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = Interface.textColor
         label.textAlignment = .center
         
         return label
@@ -45,8 +45,8 @@ final class ChatViewController: UIViewController {
     private lazy var sendButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.up"), for: .normal)
-        button.backgroundColor = .orange
-        button.imageView?.tintColor = .white
+        button.backgroundColor = Interface.textColor
+        button.imageView?.tintColor = Interface.viewColor
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
         let action = UIAction { [weak self] _ in
@@ -66,8 +66,9 @@ final class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        navigationController?.navigationBar.tintColor = .white
+        view.backgroundColor = Interface.viewColor
+        navigationController?.navigationBar.tintColor = Interface.textColor
+        messagesTableView.backgroundColor = Interface.viewColor
         
         setupSubviews(userImage, nameLabel, messageTF, messagesTableView, sendButton)
         setConstraints()
@@ -200,6 +201,7 @@ extension ChatViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         guard let cell = cell as? ChatViewCell else { return UITableViewCell() }
         
+        cell.backgroundColor = Interface.viewColor
         let message = currentChat.messages?[indexPath.row] ?? ""
         cell.configure(with: message)
         
