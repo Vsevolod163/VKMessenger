@@ -58,8 +58,12 @@ final class FriendViewCell: UITableViewCell {
     }
     
     func configure(with item: FriendItem) {
+        fullNameLabel.textColor = Interface.textColor
+        cityLabel.textColor = Interface.textColor
+        
         fullNameLabel.text = "\(item.firstName ?? "") \(item.lastName ?? "")"
         cityLabel.text = item.city?.title
+        
         if item.online == 1 {
             onlineStatusLabel.textColor = .systemGreen
             onlineStatusLabel.text = "Online"

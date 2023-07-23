@@ -19,7 +19,6 @@ final class PhotosViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView!.register(PhotoViewCell.self, forCellWithReuseIdentifier: cellID)
         fetchData()
-        collectionView.backgroundColor = .black
     }
     
     // MARK: UICollectionViewDataSource

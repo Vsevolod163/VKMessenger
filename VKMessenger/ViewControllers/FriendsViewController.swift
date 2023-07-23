@@ -21,12 +21,11 @@ final class FriendsViewController: UITableViewController {
             target: self,
             action: #selector(profileButtonPressed)
         )
-        navigationItem.rightBarButtonItem?.tintColor = .white
         
+        navigationItem.rightBarButtonItem?.tintColor = Interface.textColor
         tableView.register(FriendViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
         tableView.rowHeight = 130
-        view.backgroundColor = Interface.viewColor
     }
     
     @objc private func profileButtonPressed() {

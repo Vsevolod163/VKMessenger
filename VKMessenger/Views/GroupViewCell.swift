@@ -22,7 +22,7 @@ final class GroupViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = Interface.textColor
         
         return label
     }()
@@ -32,7 +32,7 @@ final class GroupViewCell: UITableViewCell {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .white
+        label.textColor = Interface.textColor
         
         return label
     }()
@@ -48,6 +48,8 @@ final class GroupViewCell: UITableViewCell {
     }
     
     func configure(with group: GroupItem) {
+        groupNameLabel.textColor = Interface.textColor
+        descriptionLabel.textColor = Interface.textColor
         groupNameLabel.text = group.name
         descriptionLabel.text = group.description
         groupImageView.kf.setImage(with: URL(string: group.photoOneHundred))

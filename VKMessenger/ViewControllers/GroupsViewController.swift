@@ -18,9 +18,8 @@ final class GroupsViewController: UITableViewController {
         tableView.register(GroupViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
         tableView.rowHeight = 130
-        tableView.backgroundColor = .black
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         groups.count
     }
@@ -30,7 +29,7 @@ final class GroupsViewController: UITableViewController {
         guard let cell = cell as? GroupViewCell else { return UITableViewCell() }
         
         cell.selectionStyle = .none
-        cell.backgroundColor = .black
+        cell.backgroundColor = Interface.cellColor
         let group = groups[indexPath.row]
         cell.configure(with: group)
         
