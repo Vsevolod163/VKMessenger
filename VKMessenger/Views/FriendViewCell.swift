@@ -57,12 +57,12 @@ final class FriendViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with item: FriendItem) {
+    func configure(with item: Friend) {
         fullNameLabel.textColor = Interface.textColor
         cityLabel.textColor = Interface.textColor
         
         fullNameLabel.text = "\(item.firstName ?? "") \(item.lastName ?? "")"
-        cityLabel.text = item.city?.title
+        cityLabel.text = item.city
         
         if item.online == 1 {
             onlineStatusLabel.textColor = .systemGreen

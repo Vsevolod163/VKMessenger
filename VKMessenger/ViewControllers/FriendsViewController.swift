@@ -11,7 +11,10 @@ final class FriendsViewController: UITableViewController {
 
     private let cellID = "friend"
     private let networkManager = NetworkManager.shared
+    private let storageManager = StorageManager.shared
+    
     private var items: [FriendItem] = []
+    private var allFriends: [Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,26 @@ final class FriendsViewController: UITableViewController {
             switch result {
             case .success(let response):
                 self?.items = response.response.items
+                self?.fetchFriends()
+                
+                self?.allFriends.forEach { friend in
+                    self?.storageManager.deleteFriend(friend)
+                }
+                
+                self?.allFriends = []
+                
+                self?.items.forEach { item in
+                    self?.storageManager.createFriend(
+                        id: item.id,
+                        firstName: item.firstName ?? "",
+                        lastName: item.lastName ?? "",
+                        city: item.city?.title ?? "",
+                        online: item.online,
+                        photoTwoHundred: item.photoTwoHundred ?? ""
+                    )
+                }
+                
+                self?.fetchFriends()
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
@@ -53,13 +76,24 @@ final class FriendsViewController: UITableViewController {
             }
         }
     }
+    
+    private func fetchFriends() {
+        storageManager.fetchFriends { result in
+            switch result {
+            case .success(let friends):
+                allFriends = friends
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension FriendsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        allFriends.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,8 +102,8 @@ extension FriendsViewController {
         
         cell.selectionStyle = .none
         cell.backgroundColor = Interface.cellColor
-        let item = items[indexPath.row]
-        cell.configure(with: item)
+        let friend = allFriends[indexPath.row]
+        cell.configure(with: friend)
         
         return cell
     }
