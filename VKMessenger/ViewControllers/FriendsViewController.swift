@@ -18,6 +18,7 @@ final class FriendsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRefreshControl()
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "person"),
             style: .plain,
@@ -70,6 +71,9 @@ final class FriendsViewController: UITableViewController {
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    if self?.refreshControl != nil {
+                        self?.refreshControl?.endRefreshing()
+                    }
                 }
             case .failure(let error):
                 print(error)
@@ -86,6 +90,16 @@ final class FriendsViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
+        let refreshAction = UIAction { [unowned self] _ in
+            fetchData()
+        }
+        refreshControl?.addAction(refreshAction, for: .valueChanged)
     }
 }
 
