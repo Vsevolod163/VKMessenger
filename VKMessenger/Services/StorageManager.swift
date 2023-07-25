@@ -39,11 +39,35 @@ final class StorageManager {
         }
     }
     
+    func fetchFriends(completion: (Result<[Friend], Error>) -> Void) {
+        let fetchRequest = Friend.fetchRequest()
+        
+        do {
+            let friends = try viewContext.fetch(fetchRequest)
+            completion(.success(friends))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
     func create(id: Int, messages: [String]) {
         let chat = Chat(context: viewContext)
         
         chat.id = Int64(id)
         chat.messages = messages
+        
+        saveContext()
+    }
+    
+    func createFriend(id: Int, firstName: String, lastName: String, city: String, online: Int, photoTwoHundred: String) {
+        let friend = Friend(context: viewContext)
+        
+        friend.id = Int64(id)
+        friend.firstName = firstName
+        friend.lastName = lastName
+        friend.city = city
+        friend.online = Int64(online)
+        friend.photoTwoHundred = photoTwoHundred
         
         saveContext()
     }
@@ -57,6 +81,12 @@ final class StorageManager {
     func delete(_ chat: Chat) {
         viewContext.delete(chat)
 
+        saveContext()
+    }
+    
+    func deleteFriend(_ friend: Friend) {
+        viewContext.delete(friend)
+        
         saveContext()
     }
     
