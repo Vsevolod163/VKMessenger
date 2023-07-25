@@ -11,7 +11,10 @@ final class GroupsViewController: UITableViewController {
     
     private let cellID = "group"
     private let networkManager = NetworkManager.shared
+    private let storageManager = StorageManager.shared
+    
     private var groups: [GroupItem] = []
+    private var allGroups: [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ final class GroupsViewController: UITableViewController {
         
         cell.selectionStyle = .none
         cell.backgroundColor = Interface.cellColor
-        let group = groups[indexPath.row]
+        let group = allGroups[indexPath.row]
         cell.configure(with: group)
         
         return cell
@@ -43,11 +46,40 @@ final class GroupsViewController: UITableViewController {
             switch result {
             case .success(let group):
                 self?.groups = group.response.items
+                self?.fetchGroups()
+                
+                self?.allGroups.forEach { group in
+                    self?.storageManager.deleteGroup(group)
+                }
+                
+                self?.allGroups = []
+                
+                self?.groups.forEach { group in
+                    self?.storageManager.createGroup(
+                        id: group.id,
+                        name: group.name,
+                        groupDescription: group.description,
+                        photoTwoHundred: group.photoOneHundred
+                    )
+                }
+                
+                self?.fetchGroups()
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    private func fetchGroups() {
+        storageManager.fetchGroups { result in
+            switch result {
+            case .success(let groups):
+                allGroups = groups
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

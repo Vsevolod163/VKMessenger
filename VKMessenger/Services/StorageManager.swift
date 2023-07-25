@@ -50,6 +50,17 @@ final class StorageManager {
         }
     }
     
+    func fetchGroups(completion: (Result<[Group], Error>) -> Void) {
+        let fetchRequest = Group.fetchRequest()
+        
+        do {
+            let groups = try viewContext.fetch(fetchRequest)
+            completion(.success(groups))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
     func create(id: Int, messages: [String]) {
         let chat = Chat(context: viewContext)
         
@@ -72,6 +83,17 @@ final class StorageManager {
         saveContext()
     }
     
+    func createGroup(id: Int, name: String, groupDescription: String, photoTwoHundred: String) {
+        let group = Group(context: viewContext)
+        
+        group.id = Int64(id)
+        group.name = name
+        group.groupDescription = groupDescription
+        group.photoOneHundred = photoTwoHundred
+        
+        saveContext()
+    }
+    
     func update(_ chat: Chat, message: String) {
         chat.messages?.append(message)
         
@@ -86,6 +108,12 @@ final class StorageManager {
     
     func deleteFriend(_ friend: Friend) {
         viewContext.delete(friend)
+        
+        saveContext()
+    }
+    
+    func deleteGroup(_ group: Group) {
+        viewContext.delete(group)
         
         saveContext()
     }
