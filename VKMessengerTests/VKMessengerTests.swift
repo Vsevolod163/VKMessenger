@@ -30,6 +30,13 @@ final class VKMessengerTests: XCTestCase {
         }
     }
     
-    
+    private func getItems() {
+        let numbers = 1...1_000_000
+        
+        for number in numbers {
+            let item = "Item: \(number)"
+            items.append(item)
+        }
+    }
     
 }
