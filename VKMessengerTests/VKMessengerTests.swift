@@ -26,7 +26,7 @@ final class VKMessengerTests: XCTestCase {
 
     func testPerformanceExample() {
         measure {
-            
+            getMoreItems()
         }
     }
     
@@ -39,4 +39,7 @@ final class VKMessengerTests: XCTestCase {
         }
     }
     
+    private func getMoreItems() {
+        items = (1...1_000_000).map {"Item: \($0)" }
+    }
 }
