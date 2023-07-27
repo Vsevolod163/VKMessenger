@@ -6,9 +6,12 @@
 //
 
 import XCTest
+@testable import VKMessenger
 
 final class VKMessengerTests: XCTestCase {
 
+    var sut: FriendsViewController!
+    
     var items: [String] = []
     
     override func setUp() {

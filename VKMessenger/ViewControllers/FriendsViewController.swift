@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FriendsViewController: UITableViewController {
+class FriendsViewController: UITableViewController {
 
     private let cellID = "friend"
     private let networkManager = NetworkManager.shared
