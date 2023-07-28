@@ -11,20 +11,21 @@ import XCTest
 final class VKMessengerTests: XCTestCase {
 
     var sut: FriendsViewController!
-    
+
     var items: [String] = []
-    
+
     override func setUp() {
         super.setUp()
+        sut = FriendsViewController()
     }
 
     override func tearDown() {
-        
+        sut = nil
         super.tearDown()
     }
 
     func testExample() {
-        
+        sut.fetchFriends()
     }
 
     func testPerformanceExample() {
@@ -32,16 +33,16 @@ final class VKMessengerTests: XCTestCase {
             getMoreItems()
         }
     }
-    
+
     private func getItems() {
         let numbers = 1...1_000_000
-        
+
         for number in numbers {
             let item = "Item: \(number)"
             items.append(item)
         }
     }
-    
+
     private func getMoreItems() {
         items = (1...1_000_000).map {"Item: \($0)" }
     }

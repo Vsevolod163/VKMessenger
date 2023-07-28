@@ -21,7 +21,7 @@ struct FriendItem: Decodable {
     let firstName: String?
     let lastName: String?
     let online: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case city
@@ -35,4 +35,3 @@ struct FriendItem: Decodable {
 struct City: Decodable {
     let title: String
 }
-

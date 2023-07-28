@@ -17,9 +17,9 @@ final class NetworkManager {
     static var shared = NetworkManager()
     static var token = ""
     static var userID = ""
-    
+
     private init() {}
-    
+
     func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
@@ -27,7 +27,7 @@ final class NetworkManager {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let dataModel = try decoder.decode(T.self, from: data)

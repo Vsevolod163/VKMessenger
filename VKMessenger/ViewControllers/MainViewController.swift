@@ -13,28 +13,34 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.navigationDelegate = self
-        
+
         return webView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(webView)
         setConstraints()
-        
-        if let url = URL(string: "https://oauth.vk.com/authorize?client_id=51704618&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
+
+        if let url = URL(
+            string: "https://oauth.vk.com/authorize?client_id=51704618&redirect_uri" +
+            "=https://oauth.vk.com/blank.html&scope=friends,groups,photos&display=mobile&response_type=token") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationResponse: WKNavigationResponse,
+        decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
+    ) {
         guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment else {
             decisionHandler(.allow)
             return
         }
-        
+
         let params = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=") }
@@ -43,22 +49,22 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
                 let key = param[0]
                 let value = param[1]
                 dict[key] = value
-                
+
                 return dict
             }
         let token = params["access_token"] ?? ""
         let userID = params["user_id"] ?? ""
         print(token as String)
         print(userID as String)
-        
+
         NetworkManager.token = token
         NetworkManager.userID = userID
-        
+
         decisionHandler(.cancel)
         webView.removeFromSuperview()
-        
+
         let tabBarController = setupTabBarController(withToken: token, andUserId: userID)
-        
+
         navigationController?.pushViewController(tabBarController, animated: true)
     }
 
@@ -87,10 +93,10 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
 
         tabBarController.viewControllers = [UINavigationController.init(rootViewController: friendsVC), groupsVC, photosVC]
         tabBarController.navigationItem.hidesBackButton = true
-        
+
         return tabBarController
     }
-    
+
     private func setConstraints() {
         webView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
@@ -104,4 +110,3 @@ final class MainViewController: UIViewController, WKNavigationDelegate {
     }
 
 }
-

@@ -17,7 +17,7 @@ extension UIImageView {
         pulse.duration = 0.6
         pulse.initialVelocity = 0.5
         pulse.damping = 1
-        
+
         layer.add(pulse, forKey: nil)
     }
 }

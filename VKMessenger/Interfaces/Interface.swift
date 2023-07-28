@@ -13,6 +13,6 @@ final class Interface {
     static var viewColor: UIColor = .white
     static var cellColor: UIColor = .white
     static var textColor: UIColor = .black
-    
+
     private init() {}
 }

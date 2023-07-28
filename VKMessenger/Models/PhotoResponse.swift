@@ -18,7 +18,7 @@ struct PhotoItem: Decodable {
     let sizes: [Size]
 }
 
-struct Size: Decodable{
+struct Size: Decodable {
     let type: String
     let url: String
 }

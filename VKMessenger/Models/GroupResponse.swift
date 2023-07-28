@@ -19,7 +19,7 @@ struct GroupItem: Decodable {
     let description: String
     let name: String
     let photoOneHundred: String
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case description

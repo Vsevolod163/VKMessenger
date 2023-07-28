@@ -13,7 +13,7 @@ struct User: Decodable {
     let photoTwoHundred: String
     let firstName: String
     let lastName: String
-    
+
     enum CodingKeys: String, CodingKey {
         case photoTwoHundred = "photo_200"
         case firstName = "first_name"
